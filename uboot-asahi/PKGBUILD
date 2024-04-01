@@ -1,0 +1,39 @@
+# Maintainer: Hector Martin <marcan@marcan.st>
+
+pkgname=uboot-asahi
+_ver=2023.07.02
+_asahirel=3
+
+pkgver=${_ver}.asahi${_asahirel}
+pkgrel=1
+pkgdesc='U-Boot for Apple Silicon Macs'
+_commit_id=asahi-v${_ver}-${_asahirel}
+_srcname=u-boot-${_commit_id}
+arch=('aarch64')
+url='http://asahilinux.org'
+license=('MIT' 'GPL2')
+makedepends=( bc imagemagick )
+source=(
+  "u-boot-${_commit_id}.tar.gz::https://github.com/AsahiLinux/u-boot/archive/${_commit_id}.tar.gz"
+)
+sha256sums=('67c08af75338b56b3922653943335a99c1cf3075c56c3728f5f53fd14ac52d9f')
+b2sums=('4374f46d0ac8c57bf2f8f75092b77fa66b10430f0936cffa56f6b38c4a3d81cf34a677da9bf207f1365de4b7104e89624b88d17605828acbe70a2021aad8d872')
+
+prepare() {
+  cd "${srcdir}/$_srcname"
+  make apple_m1_defconfig
+}
+
+build() {
+  cd "${srcdir}/$_srcname"
+  make
+}
+
+package() {
+  cd "${srcdir}"
+
+  tgtdir="$pkgdir/usr/lib/asahi-boot"
+
+  install -Dt "$tgtdir" -m644 "$_srcname/u-boot-nodtb.bin"
+  install -Dt "$tgtdir/dtb" -m644 "$_srcname/arch/arm/dts/"t[86]*.dtb
+}
