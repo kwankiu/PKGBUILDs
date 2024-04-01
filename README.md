@@ -117,12 +117,12 @@ with your preferred repo name
 ```
 repo_name="YOUR_REPO_NAME"
 ```
-#### (Tips) Building on x86_64 or if your conf outputs .pkg.tar.zst instead of .pkg.tar.xz
+#### (Tips) Building on x86_64 or if your packages output as .pkg.tar.zst instead of .pkg.tar.xz
 Edit `build.sh`:
 Uncomment the zst one and comment the xz one:
 ```
-repo-add -s -v -n db/${repo_name}.db.tar.xz *.pkg.tar.zst
-#repo-add -s -v -n db/${repo_name}.db.tar.xz *.pkg.tar.xz
+#repo-add -s -v -n ${repo_name}.db.tar.xz *.pkg.tar.xz
+repo-add -s -v -n ${repo_name}.db.tar.xz *.pkg.tar.zst
 ```
 #### Start building your repository
 Make sure you have permission to run the build script:

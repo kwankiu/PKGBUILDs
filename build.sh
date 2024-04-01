@@ -71,7 +71,6 @@ for ((i = 0; i < ${#pkg[@]}; i++)); do
     fi
 done
 
-mkdir -p db
-repo-add -s -v -n db/${repo_name}.db.tar.xz *.pkg.tar.xz
-#repo-add -s -v -n db/${repo_name}.db.tar.xz *.pkg.tar.zst
-sudo rm -rf db/*.old db/*.old.*
+repo-add -s -v -n ${repo_name}.db.tar.xz *.pkg.tar.xz
+#repo-add -s -v -n ${repo_name}.db.tar.xz *.pkg.tar.zst
+sudo rm -rf *db*.old *db*.old.*
