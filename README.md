@@ -11,6 +11,7 @@ To keep each branch clean and easy to maintain, each branch serve different purp
 
 ### Using my Experimental Pacman Repository
 **These are experimental packages for testing only.**
+
 **Notes:** If a package / dependency is hosted on https://github.com/7Ji/archrepo I will not host a duplicated package on this repository. Therefore, make sure to add 7Ji's archrepo to your system as well for full experience.
 
 As every package in this repo is signed with my PGP key, you must trust the repo before attempting to install any package.
@@ -125,6 +126,8 @@ Uncomment the zst one and comment the xz one:
 repo-add -s -v -n ${repo_name}.db.tar.xz *.pkg.tar.zst
 ```
 #### Start building your repository
+You may also want to customize or use your own config yaml, ARB config yaml are documented [here](https://github.com/7Ji/arch_repo_builder#config).
+
 Make sure you have permission to run the build script:
 ```
 sudo chmod +x build.sh
@@ -138,4 +141,5 @@ To build packages from a specified yaml (for example `rockchip.yaml`):
 ```
 ./build.sh rockchip
 ```
-You may also want to customize or use your own config yaml, ARB config yaml are documented [here](https://github.com/7Ji/arch_repo_builder#config).
+
+Once it is done, the repository are generated at the `repo` directory, you can simply upload everything from the generated directory to a hosting provider or GitHub release.
