@@ -5,23 +5,23 @@ home_binds: [.cache/ccache, .config/ccache]
 pkgbuilds:
   # Mesa for Asahi (Apple Silicon)
   mesa-asahi-edge:
-    url: https://github.com/joske/PKGBUILDs.git
-    branch: mesa
+    url: https://github.com/kwankiu/PKGBUILDs.git
+    branch: asahi
     subtree: mesa-asahi-edge
     makedeps: [spirv-llvm-translator]
   # Linux Kernel for Asahi (Apple Silicon)
   linux-asahi:
-    url: https://github.com/joske/PKGBUILDs.git
-    branch: kernel
+    url: https://github.com/kwankiu/PKGBUILDs.git
+    branch: asahi
     subtree: linux-asahi
   # m1n1 bootloader for Asahi (Apple Silicon)
   m1n1:
-    url: https://github.com/joske/PKGBUILDs.git
-    branch: kernel
+    url: https://github.com/kwankiu/PKGBUILDs.git
+    branch: asahi
     subtree: m1n1
   # u-boot for Asahi (Apple Silicon)
   uboot-asahi:
-    url: https://github.com/joske/PKGBUILDs.git
-    branch: kernel
+    url: https://github.com/kwankiu/PKGBUILDs.git
+    branch: asahi
     subtree: uboot-asahi
 
