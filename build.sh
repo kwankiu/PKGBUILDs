@@ -48,7 +48,7 @@ else
     arbconfig=($(ls ../ | grep .yaml))
     for ((i = 0; i < ${#arbconfig[@]}; i++)); do
         colorecho "$BLUE" "Building packages for ${arbconfig[i]} ..."
-        sudo ./arb "../${arbconfig[i]}.yaml"
+        sudo ./arb "../${arbconfig[i]}"
     done
 fi
 
