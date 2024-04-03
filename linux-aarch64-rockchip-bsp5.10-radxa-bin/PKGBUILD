@@ -4,7 +4,7 @@
 # Contributor: Jack Chen <redchenjs@live.com>
 
 _kernel=linux-aarch64-rockchip-bsp5.10-radxa
-pkgver=5.10.110.33-65700d485
+pkgver=5.10.110.33.65700d485
 pkgbase=$_kernel-bin
 pkgname=($pkgbase $pkgbase-headers)
 pkgrel=1
