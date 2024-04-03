@@ -36,7 +36,7 @@ prepare() {
   rm -rf image
   mkdir -p debs  
 
-  cd "linux-rockchip"
+  cd "linux-rk2312"
   local _tag=$(git describe --abbrev=0 --tags)
    
   # get the latest image version from debian repo
