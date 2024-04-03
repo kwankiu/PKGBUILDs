@@ -89,6 +89,7 @@ _package-bin() {
   cp -r lib "$pkgdir/usr/lib"
 
   # copy kernel, bootlaoder can not load compressed kernels
+  chmod +x ../extract-vmlinux
   ../extract-vmlinux "boot/vmlinuz-${_preversion}" > "$pkgdir/usr/lib/modules/$_preversion/vmlinuz"
 
   # sed expression for following substitutions
