@@ -13,6 +13,16 @@ pkgbuilds:
     url: https://github.com/kwankiu/PKGBUILDs.git
     branch: rockchip
     subtree: linux-aarch64-rockchip-bsp6.1-joshua-bin
+  # Radxa Rockchip 6.1 bin package
+  linux-aarch64-rockchip-bsp6.1-radxa-bin:
+    url: https://github.com/kwankiu/PKGBUILDs.git
+    branch: rockchip
+    subtree: linux-aarch64-rockchip-bsp6.1-radxa-bin
+  # Radxa Rockchip 5.10 bin package
+  linux-aarch64-rockchip-bsp5.10-radxa-bin:
+    url: https://github.com/kwankiu/PKGBUILDs.git
+    branch: rockchip
+    subtree: linux-aarch64-rockchip-bsp5.10-radxa-bin
   # Joshua Rockchip 6.1 with Panthor backport
   linux-aarch64-rockchip-bsp6.1-joshua-panthor-git:
     url: https://github.com/kwankiu/PKGBUILDs.git
