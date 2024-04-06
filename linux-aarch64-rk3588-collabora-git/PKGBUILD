@@ -16,9 +16,16 @@ options=(!strip)
 source=("git+$url#branch=rk3588"
         "config"
         "extlinux.collabora.template"
-        "https://raw.githubusercontent.com/armbian/build/main/patch/kernel/rockchip-rk3588-edge/board-khadas-edge2-add-nodes.patch"
+        "https://raw.githubusercontent.com/armbian/build/main/patch/kernel/rockchip-rk3588-edge/1020-Add-HDMI-and-VOP2-to-Rock-5A.patch"
+        "https://raw.githubusercontent.com/armbian/build/main/patch/kernel/rockchip-rk3588-edge/1021-arch-arm64-dts-enable-gpu-node-for-rock-5a.patch"
+        "https://raw.githubusercontent.com/armbian/build/main/patch/kernel/rockchip-rk3588-edge/1022-arm64-dts-rockchip-support-poweroff-on-rock-5a.patch"
+        "https://raw.githubusercontent.com/armbian/build/main/patch/kernel/rockchip-rk3588-edge/1023-arm64-dts-rockchip-add-PCIe-for-M.2-E-Key-to-rock-5a.patch"
+        "https://raw.githubusercontent.com/armbian/build/main/patch/kernel/rockchip-rk3588-edge/1040-board-khadas-edge2-add-nodes.patch"
+        "https://raw.githubusercontent.com/armbian/build/main/patch/kernel/rockchip-rk3588-edge/1041-board-khadas-edge2-mcu.patch"
+        "https://raw.githubusercontent.com/armbian/build/main/patch/kernel/rockchip-rk3588-edge/0801-wireless-add-bcm43752.patch"
+        "https://raw.githubusercontent.com/armbian/build/main/patch/kernel/rockchip-rk3588-edge/0802-wireless-add-clk-property.patch"
         )
-sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP')
+sha256sums=('SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP' 'SKIP')
 
 pkgver() {
   cd linux
@@ -35,9 +42,17 @@ prepare() {
   cd linux
 
   echo "Patching kernel (temporary patches)..."
+  # For Rock 5A
+  patch -p1 < ../1020-Add-HDMI-and-VOP2-to-Rock-5A.patch
+  patch -p1 < ../1021-arch-arm64-dts-enable-gpu-node-for-rock-5a.patch
+  patch -p1 < ../1022-arm64-dts-rockchip-support-poweroff-on-rock-5a.patch
+  patch -p1 < ../1023-arm64-dts-rockchip-add-PCIe-for-M.2-E-Key-to-rock-5a.patch
   # For Khadas Edge 2
-  patch -p1 < ../board-khadas-edge2-add-nodes.patch
-  #patch -p1 < ../board-khadas-edge2-mcu.patch
+  patch -p1 < ../1040-board-khadas-edge2-add-nodes.patch
+  patch -p1 < ../1041-board-khadas-edge2-mcu.patch
+  # Fix Boardcom WiFi (AP6275P)
+  patch -p1 < ../0801-wireless-add-bcm43752.patch
+  patch -p1 < ../0802-wireless-add-clk-property.patch
   
   echo "Setting version..."
   echo "-$pkgrel" > localversion.10-pkgrel
