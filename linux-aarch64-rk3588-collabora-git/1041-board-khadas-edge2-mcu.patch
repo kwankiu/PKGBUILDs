@@ -6,21 +6,7 @@ Subject: mfd: khadas-mcu: add Edge2 registers
 ---
  drivers/mfd/khadas-mcu.c       |  8 +++-
  include/linux/mfd/khadas-mcu.h | 24 ++++++++++
- 2 files changed, 31 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
-index 61396d824f16df67cfde41c1fe27310da1ca95be..ba981a78869215c66a20276f3afe235775c06ea3 100644
---- a/drivers/mfd/khadas-mcu.c
-+++ b/drivers/mfd/khadas-mcu.c
-@@ -72,7 +72,7 @@ static const struct regmap_config khadas_mcu_regmap_config = {
- 	.max_register	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
- 	.volatile_reg	= khadas_mcu_reg_volatile,
- 	.writeable_reg	= khadas_mcu_reg_writeable,
--	.cache_type	= REGCACHE_RBTREE,
-+	.cache_type	= REGCACHE_MAPLE,
- };
- 
- static struct mfd_cell khadas_mcu_fan_cells[] = {
+ 2 files changed, 30 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
 index 61396d824f16..a1a63fb70aac 100644
