@@ -19,14 +19,12 @@ source=(
 git+https://github.com/radxa-pkg/linux-rk2312.git#branch=main
     "linux.preset"
     "extract-vmlinux"
-    "extlinux.radxa.template"
     )
 
 sha512sums=(
   'SKIP'
   '2dc6b0ba8f7dbf19d2446c5c5f1823587de89f4e28e9595937dd51a87755099656f2acec50e3e2546ea633ad1bfd1c722e0c2b91eef1d609103d8abdc0a7cbaf'
   'ba6edcd5f56a4c3e865578eabf1e1311b8e5e7babffdb0f84b99971238505ca27eba506f2723638129ef6558eba95f7e4fd2e07b40e5a4de716e5de90d1cbe79'
-  'SKIP'
 )
 noextract=("${source[@]##*/}")
 
@@ -81,9 +79,6 @@ _package() {
   # copy dtbs
   mkdir -p "$pkgdir/boot/dtbs/$_kernel"
   cp -raf "usr/lib/linux-image-${_preversion}/." "$pkgdir/boot/dtbs/$_kernel"
-  
-  # install extlinux template
-  install -Dm755 ../extlinux.radxa.template "$pkgdir/boot/extlinux/extlinux.radxa.template"
 
   # copy modules
   cp -r lib "$pkgdir/usr/lib"
