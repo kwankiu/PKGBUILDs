@@ -4,8 +4,8 @@
 # Contributor: Jack Chen <redchenjs@live.com>
 
 _kernel=linux-aarch64-rockchip-bsp6.1-radxa
-pkgver=6.1.43.3.7fe0e59bb
-pkgbase=$_kernel-bin
+pkgver=6.1.43.10.eb3b42978
+pkgbase=$_kernel
 pkgname=($pkgbase $pkgbase-headers)
 pkgrel=1
 arch=('aarch64')
@@ -52,7 +52,7 @@ pkgver(){
   printf "${_version//rockchip./}"
 }
 
-_package-bin() {
+_package() {
   pkgdesc="Precompiled Radxa Rockchip BSP 6.1 Linux kernel"
   depends=('coreutils' 'linux-firmware' 'kmod' 'mkinitcpio>=0.7' 'grep' 'gzip' 'mali-valhall-g610-firmware')
   optdepends=('crda: to set the correct wireless channels of your country')
@@ -107,7 +107,7 @@ _package-bin() {
 
 }
 
-_package-bin-headers() {
+_package-headers() {
   pkgdesc="Precompiled Radxa Rockchip BSP 6.1 Linux kernel headers"
   provides=("linux-headers=${pkgver}")
   depends=("python")
