@@ -3,12 +3,12 @@
 
 buildarch=8
 
-_rcver=6.8.6
+_rcver=6.8.10
 #_rcrel=3
-_asahirel=3
+_asahirel=4
 pkgrel=1
 
-_m1n1_version=1.4.11
+_m1n1_version=1.4.14
 
 pkgbase=linux-asahi
 #_commit_id=asahi-${_nextver}-${_asahirel}
@@ -28,11 +28,17 @@ options=('!strip')
 source=(
   https://github.com/AsahiLinux/linux/archive/${_commit_id}.tar.gz
   config         # the main kernel config file
+  0001-READ-COMMIT-MESSAGE-macaudio-Enable-first-round-of-m.patch
+  0002-READ-COMMIT-MESSAGE-macaudio-Enable-second-round-of-.patch
 )
-sha256sums=('SKIP'
-            'adbefe442c323be82bc534702efccbf7dcd6720dad926af93435e69b261e6817')
-b2sums=('SKIP'
-        'fe5b2ed51dc5a08c32487d85cf24eef9f76c1dd5865ad8b48f5fc49c33b7388ea8c346f357a931bcd48d4028dff73cde839e3450c2b07178f0b86934b70df729')
+sha256sums=('6f339c96854b94d915864fd5d38712c63476bdbf65ca331de411309b40bf268f'
+            'dd1b9677a1e9255183c12cdc6195cf48dce523222144626819a5ff525ae04af8'
+            'd133d00c2198673b5f8a37249ea936a466dc98050a7b6b0767d7a6dfc42d8541'
+            '95408f3b1cc8842e12ffaa3ce41ada149ee32fd5bd2bbafa95449388a37cef7c')
+b2sums=('9bd9e9b17c40ab861b676e21bbfd07846d7e4b813c82f393a3fe52f2526638b25052238d98724390cf766a9ba29cb20d7f0d85d283e4de6c1ffbc0d6f4acd0bb'
+        '3b5af2cf0796219d70a756d747a62f38e2a64757791aa16254f81e6bff61261db0a1b95ebc3400cf3de0d715afa683dc487586c3abef1f744642f774178dd750'
+        '2e0015cfb2aea1b4bc2da796f4a40c7d9ac21baf08aae572d28ecc4f0f399141072df42acb598176cfb06c6184dadc1ccfbf8a2a8b4e9085759260e800068e26'
+        '2b0481f336dbf33c3909ac16a9b3ab8b425a31a085746730648910a00b8fabf90ba3988e4bb04d9c8801e1b100c6ecba858c191a2fab00c0af51f931c26a515d')
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
 export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
@@ -72,7 +78,7 @@ build() {
 
 _package_kernel() {
   pkgdesc="The $pkgdesc kernel and modules"
-  depends=(coreutils kmod initramfs $2 "m1n1>=$_m1n1_version")
+  depends=(coreutils kmod initramfs $2 "m1n1>=$_m1n1_version" "mesa-asahi-edge>=24.1.0_pre20240214-1")
   optdepends=('crda: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
   provides=(WIREGUARD-MODULE linux=${pkgver})
