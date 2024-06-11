@@ -3,21 +3,32 @@ dephash_strategy: strict
 basepkgs: [base-devel, bc, distcc, ccache]
 home_binds: [.cache/ccache, .config/ccache]
 pkgbuilds:
-  # Mainline Mesa for Panfrost
-  mesa-panfrost-git:
-    url: https://github.com/kwankiu/PKGBUILDs.git
-    branch: rockchip
-    subtree: mesa-panfrost-git
-  # Radxa Rockchip 6.1 bin package
-  linux-aarch64-rockchip-bsp6.1-radxa:
-    url: https://github.com/kwankiu/PKGBUILDs.git
-    branch: rockchip
-    subtree: linux-aarch64-rockchip-bsp6.1-radxa
-  # Radxa Rockchip 5.10 bin package
+  # Radxa Rockchip BSP5.10 Kernel
   linux-aarch64-rockchip-bsp5.10-radxa:
     url: https://github.com/kwankiu/PKGBUILDs.git
     branch: rockchip
     subtree: linux-aarch64-rockchip-bsp5.10-radxa
+  # Radxa Rockchip BSP6.1 Kernel
+  linux-aarch64-rockchip-bsp6.1-radxa:
+    url: https://github.com/kwankiu/PKGBUILDs.git
+    branch: rockchip
+    subtree: linux-aarch64-rockchip-bsp6.1-radxa
+  # Armbian firmware for Wireless
+  linux-firmware-armbian-git:
+    url: https://github.com/kwankiu/PKGBUILDs.git
+    branch: rockchip
+    subtree: linux-firmware-armbian-git  
+  # Armbian Rockchip BSP6.1 Kernel
+  linux-aarch64-rockchip-bsp6.1-armbian-git:
+    url: https://github.com/kwankiu/PKGBUILDs.git
+    branch: rockchip
+    subtree: linux-aarch64-rockchip-bsp6.1-armbian-git
+  # Mainline Mesa for Panfrost (no longer needed)
+  #mesa-panfrost-git:
+  #  url: https://github.com/kwankiu/PKGBUILDs.git
+  #  branch: rockchip
+  #  subtree: mesa-panfrost-git
+  # Radxa Rockchip 6.1 bin package
   # Joshua Rockchip 6.1 with Panthor backport
   #linux-aarch64-rockchip-bsp6.1-joshua-panthor-git:
   #  url: https://github.com/kwankiu/PKGBUILDs.git
