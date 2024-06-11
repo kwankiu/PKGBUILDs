@@ -1,0 +1,30 @@
+pkgbase = linux-aarch64-rockchip-bsp6.1-armbian-git
+	pkgver = 6.1.43.r1266030.gd3e66fee
+	pkgrel = 1
+	url = https://github.com/armbian
+	arch = aarch64
+	license = GPL2
+	makedepends = cpio
+	makedepends = xmlto
+	makedepends = docbook-xsl
+	makedepends = kmod
+	makedepends = inetutils
+	makedepends = bc
+	makedepends = git
+	makedepends = dtc
+	options = !strip
+	source = git+https://github.com/armbian/linux-rockchip.git#branch=rk-6.1-rkr1
+	source = localversion.config
+	sha512sums = SKIP
+	sha512sums = 9ec050e491788b8428395fc28b6d8486d64d314d8b85e97d8df30a35bd7b85d2ed84682e7b2eaed7b471b73aa51119e360761a099719eed9952713e0caba17ce
+
+pkgname = linux-aarch64-rockchip-bsp6.1-armbian-git
+	pkgdesc = The linux-rockchip kernel, Armbian Rockchip BSP 6.1 kernel
+	depends = coreutils
+	depends = kmod
+	depends = initramfs
+	optdepends = wireless-regdb: to set the correct wireless channels of your country
+
+pkgname = linux-aarch64-rockchip-bsp6.1-armbian-git-headers
+	pkgdesc = Headers and scripts for building modules for the linux-rockchip kernel, Armbian Rockchip BSP 6.1 kernel
+	depends = python
