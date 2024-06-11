@@ -1,0 +1,18 @@
+pkgbase = linux-firmware-armbian-git
+	pkgdesc = Firmware files for Linux - Armbian firmware for wireless
+	pkgver = 20240129.6831783.20240115.9b6d0b08
+	pkgrel = 1
+	url = https://github.com/armbian/firmware
+	arch = any
+	license = GPL2
+	license = GPL3
+	license = custom
+	makedepends = git
+	depends = linux-firmware
+	conflicts = linux-firmware-armbian
+	replaces = linux-firmware-armbian
+	options = !strip
+	source = git+https://github.com/armbian/firmware.git
+	sha256sums = SKIP
+
+pkgname = linux-firmware-armbian-git
