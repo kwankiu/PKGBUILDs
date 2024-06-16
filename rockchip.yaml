@@ -27,5 +27,6 @@ pkgbuilds:
   linux-aarch64-rockchip-bsp6.1-joshua-panthor-git:
     url: https://github.com/kwankiu/PKGBUILDs.git
     branch: rockchip
-    subtree: linux-aarch64-rockchip-bsp6.1-joshua-panthor-git  
-
+    subtree: linux-aarch64-rockchip-bsp6.1-joshua-panthor-git
+  # Armbian Mainline Kernel with RK3588 patches
+  linux-aarch64-rockchip-armbian-git: GH/7Ji-PKGBUILDs/
