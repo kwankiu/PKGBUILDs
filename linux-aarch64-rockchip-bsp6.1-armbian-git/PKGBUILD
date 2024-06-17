@@ -5,7 +5,7 @@
 pkgbase=linux-aarch64-rockchip-bsp6.1-armbian-git
 pkgname=("${pkgbase}"{,-headers})
 pkgver=6.1.43.r1266046.ge67c58d1
-pkgrel=2
+pkgrel=3
 arch=('aarch64')
 license=('GPL2')
 url="https://github.com/armbian"
@@ -16,11 +16,13 @@ _srcname='linux-rockchip'
 source=(
   "git+${url}/${_srcname}.git#branch=rk-6.1-rkr1"
   'localversion.config'
+  'config'
 )
 
 sha512sums=(
   'SKIP'
   '9ec050e491788b8428395fc28b6d8486d64d314d8b85e97d8df30a35bd7b85d2ed84682e7b2eaed7b471b73aa51119e360761a099719eed9952713e0caba17ce'
+  'f95a3bc0ee125d48b71227ab3b13a34ba442923e011e701ceb311a183a869d2545f1cecf04e0e54d87389a1351055c2313ea9c30911433592b43cccea6a6031d'
 )
 
 pkgver() {
@@ -49,7 +51,7 @@ prepare() {
   done
 
   echo "Preparing config..."
-  scripts/kconfig/merge_config.sh -m arch/arm64/configs/rockchip_defconfig ../localversion.config
+  scripts/kconfig/merge_config.sh -m ../config ../localversion.config
 }
 
 build() {
