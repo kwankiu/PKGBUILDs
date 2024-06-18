@@ -5,7 +5,7 @@
 pkgbase=linux-aarch64-rockchip-bsp6.1-armbian-git
 pkgname=("${pkgbase}"{,-headers})
 pkgver=6.1.43.r1266046.ge67c58d1
-pkgrel=2
+pkgrel=3
 arch=('aarch64')
 license=('GPL2')
 url="https://github.com/armbian"
@@ -16,13 +16,13 @@ _srcname='linux-rockchip'
 source=(
   "git+${url}/${_srcname}.git#branch=rk-6.1-rkr1"
   'localversion.config'
-  'disable-rkminidump.patch'
+  'config'
 )
 
 sha512sums=(
   'SKIP'
   '9ec050e491788b8428395fc28b6d8486d64d314d8b85e97d8df30a35bd7b85d2ed84682e7b2eaed7b471b73aa51119e360761a099719eed9952713e0caba17ce'
-  '4ddcf3141a1eb0843c8eac962d9c3db14610d53559c8da67eebc9d053564f0c277c9c4469ae772b93ee3b0f7572378de60fffceffa0eadee99d3768c43152a0f'
+  'f95a3bc0ee125d48b71227ab3b13a34ba442923e011e701ceb311a183a869d2545f1cecf04e0e54d87389a1351055c2313ea9c30911433592b43cccea6a6031d'
 )
 
 pkgver() {
@@ -43,9 +43,6 @@ prepare() {
   echo "Setting version..."
   echo "-rockchip" > localversion.10-pkgname
   #echo "-r$(git rev-list --count HEAD)" > localversion.20-revision
-  
-  # disable rockchip minidump to allow building
-  patch -p1 -i ../disable-rkminidump.patch || exit 1
 
   # this is only for local builds so there is no need to integrity check. (if needed)
   for p in ../../custom/*.patch; do
@@ -54,7 +51,7 @@ prepare() {
   done
 
   echo "Preparing config..."
-  scripts/kconfig/merge_config.sh -m arch/arm64/configs/rockchip_defconfig ../localversion.config
+  scripts/kconfig/merge_config.sh -m ../config ../localversion.config
 }
 
 build() {
