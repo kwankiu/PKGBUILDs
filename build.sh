@@ -44,23 +44,29 @@ fi
 if [ -n "$1" ]; then
     colorecho "$BLUE" "Building packages for $1 ..."
     sudo ./arb "../$1.yaml"
+    if [ -n "$2" ]; then
+        repo_name="$2"
+    else
+        repo_name="$1"
+    fi
 else
     arbconfig=($(ls ../ | grep .yaml))
     for ((i = 0; i < ${#arbconfig[@]}; i++)); do
         colorecho "$BLUE" "Building packages for ${arbconfig[i]} ..."
         sudo ./arb "../${arbconfig[i]}"
     done
+    repo_name="experimental"
 fi
 
-colorecho "$BLUE" "Copying new packages to repository ..."
+colorecho "$BLUE" "Copying new packages to repository ($repo_name) ..."
 cd ../
-mkdir -p repo
-cp -L build/pkgs/updated/* repo
-cd repo
+mkdir -p repo/$repo_name
+cp -L build/pkgs/updated/* repo/$repo_name
+cd repo/$repo_name
 
 # Sign pkg
 colorecho "$BLUE" "Signing new packages ..."
-repo_name="experimental"
+
 pkg=($(ls | grep .pkg.tar | grep -v .sig))
 for ((i = 0; i < ${#pkg[@]}; i++)); do
     if [ -f "${pkg[i]}.sig" ]; then
