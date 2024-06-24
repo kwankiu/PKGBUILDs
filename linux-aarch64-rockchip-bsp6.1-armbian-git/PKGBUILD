@@ -8,11 +8,13 @@ pkgver=6.1.43.r1266046.ge67c58d1
 pkgrel=3
 arch=('aarch64')
 license=('GPL2')
-url="https://github.com/armbian"
+url="https://github.com/kwankiu"
+#url="https://github.com/armbian"
 _desc="Armbian Rockchip BSP6.1 Kernel" 
 makedepends=('cpio' 'xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'dtc')
 options=('!strip')
-_srcname='linux-rockchip'
+_srcname='linux-rockchip-armbian'
+#_srcname='linux-rockchip'
 source=(
   "git+${url}/${_srcname}.git#branch=rk-6.1-rkr1"
   'localversion.config'
