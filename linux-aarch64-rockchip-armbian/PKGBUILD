@@ -31,7 +31,7 @@ sha256sums=(
   '5d4366e2b89998f274abe03557ef3bc78b58e47fc62c102d51e6f49e5ed96b4b'
   "${_sha256_patch}"
   'SKIP'
-  '3c4318b506c7ac883555c525469714df58c17e2a2f6217f2666f0e7d8d77afb9'
+  'SKIP'
 )
 
 prepare() {
