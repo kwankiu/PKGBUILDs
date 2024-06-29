@@ -4,7 +4,7 @@
 
 pkgbase=linux-aarch64-rockchip-armbian-git
 pkgname=("${pkgbase}"{,-headers})
-pkgver=6.10.0.rc5.0b0384.734967
+pkgver=6.10.0.rc5.r18.a422ac.088d3b
 pkgrel=1
 arch=('aarch64')
 license=('GPL2')
@@ -67,11 +67,19 @@ prepare() {
 
 pkgver() {
   cd "${_srcname}"
-  printf '%s.%s.%s.%s' \
-    "$(make kernelversion)" \
-    "$(<localversion.10-release-total)" \
-    "$(<localversion.20-id-config)" \
-    "$(<localversion.30-id-patch)"
+  local major_minor_patch=$(make kernelversion)
+  local release_total=$(< localversion.10-release-total)
+  local id_config=$(< localversion.20-id-config)
+  local id_patch=$(< localversion.30-id-patch)
+
+  # Remove unsupported characters from the version components
+  major_minor_patch="${major_minor_patch//[-\/:\ ]/_}"
+  release_total="${release_total//[-\/:\ ]/_}"
+  id_config="${id_config//[-\/:\ ]/_}"
+  id_patch="${id_patch//[-\/:\ ]/_}"
+
+  # Construct the final version string
+  printf '%s.%s.%s.%s' "$major_minor_patch" "$release_total" "$id_config" "$id_patch"
 }
 
 build() {
