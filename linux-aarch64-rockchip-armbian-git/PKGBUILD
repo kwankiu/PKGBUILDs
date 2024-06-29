@@ -27,7 +27,7 @@ sha512sums=(
   'SKIP'
 )
 
-_config=config/kernel/linux-rockchip-rk3588-edge.config
+_config=config/kernel/linux-rockchip-rk3588-6.10.config
 _patch=patch/kernel/archive/rockchip-rk3588-6.10
 
 prepare() {
