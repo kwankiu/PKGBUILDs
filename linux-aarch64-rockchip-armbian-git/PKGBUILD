@@ -73,10 +73,10 @@ pkgver() {
   local id_patch=$(< localversion.30-id-patch)
 
   # Remove unsupported characters from the version components
-  major_minor_patch="${major_minor_patch//[-\/:\ ]/_}"
-  release_total="${release_total//[-\/:\ ]/_}"
-  id_config="${id_config//[-\/:\ ]/_}"
-  id_patch="${id_patch//[-\/:\ ]/_}"
+  major_minor_patch="${major_minor_patch//[-\/:\ ]/.}"
+  release_total="${release_total//[-\/:\ ]/.}"
+  id_config="${id_config//[-\/:\ ]/.}"
+  id_patch="${id_patch//[-\/:\ ]/.}"
 
   # Construct the final version string
   printf '%s.%s.%s.%s' "$major_minor_patch" "$release_total" "$id_config" "$id_patch"
