@@ -4,7 +4,7 @@
 
 pkgbase=linux-aarch64-rockchip-armbian-git
 pkgname=("${pkgbase}"{,-headers})
-pkgver=6.10.0.rc5.r18.a422ac.088d3b
+pkgver=6.10.0.rc6.r18.a422ac.088d3b
 pkgrel=1
 arch=('aarch64')
 license=('GPL2')
@@ -57,13 +57,15 @@ prepare() {
   done
 
   # add custom dt and overlay
-  cp -r ../${_buildname}/${_patch}/dt/*.dts arch/arm64/boot/dts/rockchip
-  cp -r ../${_buildname}/${_patch}/overlay arch/arm64/boot/dts/rockchip/overlay
+  echo "Copying custom dt ..."
+  cp -rv ../${_buildname}/${_patch}/dt/*.dts arch/arm64/boot/dts/rockchip
+  echo "Copying custom overlay ..."
+  cp -rv ../${_buildname}/${_patch}/overlay arch/arm64/boot/dts/rockchip/overlay
 
   # append newly added dts to Makefile
   for p in ../${_buildname}/${_patch}/dt/*.dts; do
-    echo "Adding ${p} to Makefile"
-    echo "dtb-\$(CONFIG_ARCH_ROCKCHIP) += $p" >> arch/arm64/boot/dts/rockchip/Makefile
+    echo "Adding $(basename $p) to Makefile"
+    echo "dtb-\$(CONFIG_ARCH_ROCKCHIP) += $(basename $p)" >> arch/arm64/boot/dts/rockchip/Makefile
   done
 
   echo "Preparing config..."
