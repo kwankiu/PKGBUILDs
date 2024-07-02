@@ -56,6 +56,16 @@ prepare() {
     patch -p1 -N -i $p || true
   done
 
+  # add custom dt and overlay
+  cp -r ../${_buildname}/${_patch}/dt/*.dts arch/arm64/boot/dts/rockchip
+  cp -r ../${_buildname}/${_patch}/overlay arch/arm64/boot/dts/rockchip/overlay
+
+  # append newly added dts to Makefile
+  for p in ../${_buildname}/${_patch}/dt/*.dts; do
+    echo "Adding ${p} to Makefile"
+    echo "dtb-$(CONFIG_ARCH_ROCKCHIP) += $p" >> arch/arm64/boot/dts/rockchip/Makefile
+  done
+
   echo "Preparing config..."
   cat ../${_buildname}/${_config} > .config
   scripts/kconfig/merge_config.sh -m .config ../custom_reconfig
