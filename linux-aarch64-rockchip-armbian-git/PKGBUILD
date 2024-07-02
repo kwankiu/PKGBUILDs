@@ -63,7 +63,7 @@ prepare() {
   # append newly added dts to Makefile
   for p in ../${_buildname}/${_patch}/dt/*.dts; do
     echo "Adding ${p} to Makefile"
-    echo "dtb-$(CONFIG_ARCH_ROCKCHIP) += $p" >> arch/arm64/boot/dts/rockchip/Makefile
+    echo "dtb-\$(CONFIG_ARCH_ROCKCHIP) += $p" >> arch/arm64/boot/dts/rockchip/Makefile
   done
 
   echo "Preparing config..."
