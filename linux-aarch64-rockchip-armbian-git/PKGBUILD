@@ -16,7 +16,7 @@ _srcname=linux-stable
 _buildname='build'
 
 source=(
-  "${_srcname}::git+https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git#tag=v6.10-rc5"
+  "${_srcname}::git+https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git#branch=master"
   "git+https://github.com/armbian/${_buildname}.git"
   'custom_reconfig'
 )
