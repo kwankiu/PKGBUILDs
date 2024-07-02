@@ -15,15 +15,11 @@ options=('!strip')
 _srcname='linux-rockchip'
 source=(
   "git+${url}/${_srcname}.git#branch=rk-6.1-rkr1"
-  '0001-arm64-dts-rockchip-add-the-radxa-cm5-rpi-cm4-io.patch'
-  '0002-Revert-usb-dwc3-core-Do-not-perform-GCTL_CORE_SOFTRE.patch'
   'localversion.config'
   'config'
 )
 
 sha512sums=(
-  'SKIP'
-  'SKIP'
   'SKIP'
   '9ec050e491788b8428395fc28b6d8486d64d314d8b85e97d8df30a35bd7b85d2ed84682e7b2eaed7b471b73aa51119e360761a099719eed9952713e0caba17ce'
   'f95a3bc0ee125d48b71227ab3b13a34ba442923e011e701ceb311a183a869d2545f1cecf04e0e54d87389a1351055c2313ea9c30911433592b43cccea6a6031d'
@@ -47,11 +43,6 @@ prepare() {
   echo "Setting version..."
   echo "-rockchip" > localversion.10-pkgname
   #echo "-r$(git rev-list --count HEAD)" > localversion.20-revision
-
-  echo "Patching kernel (temporary patches)..."
-  # For Radxa CM5
-  patch -p1 < ../0001-arm64-dts-rockchip-add-the-radxa-cm5-rpi-cm4-io.patch
-  patch -p1 < ../0002-Revert-usb-dwc3-core-Do-not-perform-GCTL_CORE_SOFTRE.patch
 
   # this is only for local builds so there is no need to integrity check. (if needed)
   for p in ../../custom/*.patch; do
