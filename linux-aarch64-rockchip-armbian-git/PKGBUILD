@@ -24,7 +24,7 @@ source=(
 sha512sums=(
   'SKIP'
   'SKIP'
-  'SKIP'
+  '5491e2c4d69b37a8fc8761e128cef89b3406754850c71486e86f7bdba5daf855574e191b2f4d75c654a80eff33ea5249efc9ad6a97d9805cee9e5a80ed93c302'
 )
 
 _config=config/kernel/linux-rockchip-rk3588-6.10.config
