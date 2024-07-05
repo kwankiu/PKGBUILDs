@@ -23,11 +23,6 @@ pkgbuilds:
     url: https://github.com/kwankiu/PKGBUILDs.git
     branch: rockchip
     subtree: linux-aarch64-rockchip-bsp6.1-armbian-git
-  # Joshua Rockchip 6.1 with Panthor backport
-  linux-aarch64-rockchip-bsp6.1-joshua-panthor-git:
-    url: https://github.com/kwankiu/PKGBUILDs.git
-    branch: rockchip
-    subtree: linux-aarch64-rockchip-bsp6.1-joshua-panthor-git
   # Linux Mainline Kernel with Armbian's RK3588 patches
   linux-aarch64-rockchip-armbian-git:
     url: https://github.com/kwankiu/PKGBUILDs.git
@@ -39,8 +34,3 @@ pkgbuilds:
     branch: rockchip
     subtree: mesa-panfrost-git
     makedeps: [libunwind]
-  # Collabora mainline kernel for RK3588
-  #linux-aarch64-rk3588-collabora-git:
-  #  url: https://github.com/kwankiu/PKGBUILDs.git
-  #  branch: rockchip
-  #  subtree: linux-aarch64-rk3588-collabora-git
