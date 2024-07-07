@@ -28,6 +28,11 @@ pkgbuilds:
     url: https://github.com/kwankiu/PKGBUILDs.git
     branch: rockchip
     subtree: linux-aarch64-rockchip-armbian-git
+  # FydeTab Rockchip BSP5.10 Kernel
+  linux-aarch64-rockchip-bsp5.10-fydetab:
+    url: https://github.com/kwankiu/PKGBUILDs.git
+    branch: rockchip
+    subtree: linux-aarch64-rockchip-bsp5.10-fydetab
   # Mesa Panfrost (PanVK WIP)
   mesa-panfrost-git:
     url: https://github.com/kwankiu/PKGBUILDs.git
