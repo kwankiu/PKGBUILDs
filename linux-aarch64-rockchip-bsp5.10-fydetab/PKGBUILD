@@ -32,9 +32,10 @@ _package() {
   mkdir -p "$pkgdir/boot/dtbs/$_kernel"
   cp -r boot/rockchip "$pkgdir/boot/dtbs/$_kernel/rockchip"
 
-  # copy modules
+  # copy modules and firmware
   mkdir -p "$pkgdir/usr/lib"
   cp -r usr/lib/modules "$pkgdir/usr/lib/modules"
+  cp -r usr/lib/firmware "$pkgdir/usr/lib/firmware"
 
   # copy kernel
   cp -r boot/Image "$pkgdir/usr/lib/modules/$_preversion/vmlinuz"
