@@ -23,22 +23,24 @@ _package() {
 
   cd "$srcdir"
 
-  # copy everything
-  cp -r . "$pkgdir"
+  local _preversion="5.10.110-fyde"
 
-  #install -dm755 "$pkgdir/boot"
-  #install -dm755 "$pkgdir/usr"
+  install -dm755 "$pkgdir/boot"
+  install -dm755 "$pkgdir/usr"
   
   # copy dtbs
-  #mkdir -p "$pkgdir/boot/dtbs/$_kernel"
-  #cp -raf "usr/lib/linux-image-${_preversion}/." "$pkgdir/boot/dtbs/$_kernel"
+  mkdir -p "$pkgdir/boot/dtbs/$_kernel"
+  cp -r boot/rockchip "$pkgdir/boot/dtbs/$_kernel/rockchip"
 
   # copy modules
-  #cp -r lib "$pkgdir/usr/lib"
+  mkdir -p "$pkgdir/usr/lib"
+  cp -r usr/lib/modules "$pkgdir/usr/lib/modules"
 
-  # copy kernel, bootlaoder can not load compressed kernels
-  #chmod +x ../extract-vmlinux
-  #../extract-vmlinux "boot/vmlinuz-${_preversion}" > "$pkgdir/usr/lib/modules/$_preversion/vmlinuz"
+  # copy kernel
+  cp -r boot/Image "$pkgdir/usr/lib/modules/$_preversion/vmlinuz"
+
+  # used by mkinitcpio to name the kernel
+  echo "$_kernel" | install -Dm644 /dev/stdin "$pkgdir/usr/lib/modules/$_preversion/pkgbase"
 
 }
 
