@@ -24,18 +24,9 @@ pkgbuilds:
     branch: rockchip
     subtree: linux-aarch64-rockchip-bsp6.1-armbian-git
   # Linux Mainline Kernel with Armbian's RK3588 patches
-  linux-aarch64-rockchip-armbian-git:
-    url: https://github.com/kwankiu/PKGBUILDs.git
-    branch: rockchip
-    subtree: linux-aarch64-rockchip-armbian-git
+  linux-aarch64-rockchip-armbian-git: GH/7Ji-PKGBUILDs/
   # FydeTab Rockchip BSP5.10 Kernel
   linux-aarch64-rockchip-bsp5.10-fydetab:
     url: https://github.com/kwankiu/PKGBUILDs.git
     branch: rockchip
     subtree: linux-aarch64-rockchip-bsp5.10-fydetab
-  # Mesa Panfrost (PanVK WIP)
-  mesa-panfrost-git:
-    url: https://github.com/kwankiu/PKGBUILDs.git
-    branch: rockchip
-    subtree: mesa-panfrost-git
-    makedeps: [libunwind]
