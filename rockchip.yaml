@@ -19,7 +19,7 @@ pkgbuilds:
     branch: rockchip
     subtree: /
   # Linux Mainline Kernel with Armbian's RK3588 patches
-  linux-aarch64-rockchip-armbian-git: GH/7Ji-PKGBUILDs/
+  #linux-aarch64-rockchip-armbian-git: GH/7Ji-PKGBUILDs/
   # Armbian firmware for Wireless
   linux-firmware-armbian-git: GH/7Ji-PKGBUILDs/
   # FydeTab Rockchip BSP5.10 Kernel
