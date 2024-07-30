@@ -8,7 +8,7 @@ pkgbuilds:
     url: https://github.com/kwankiu/PKGBUILDs.git
     branch: asahi
     subtree: mesa-asahi-edge
-    makedeps: [spirv-llvm-translator]
+    makedeps: [spirv-llvm-translator, python-packaging]
   # Linux Kernel for Asahi (Apple Silicon)
   linux-asahi:
     url: https://github.com/kwankiu/PKGBUILDs.git
