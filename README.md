@@ -1,3 +1,4 @@
+# This repo is no longer updated, please check https://github.com/1usOS/PKGBUILDs
 ## Arch Linux PKGBUILDs for AARCH64 & SBCs
 
 This is a collection of Arch Linux PKGBUILDs I am experimenting with (as well as trying to build a [pacman repository](https://github.com/kwankiu/PKGBUILDs/releases/tag/experimental)).
